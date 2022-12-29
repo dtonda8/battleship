@@ -71,4 +71,23 @@ describe('Gameboard', () => {
         expect(gb.receiveAttack(0, 2)).toBe(false)
     })
 
+    test("Board is set when all ships are placed", () => { 
+        gb.placeShip(1, 0);
+        gb.placeShip(2, 0);
+        gb.placeShip(3, 0);
+        gb.placeShip(4, 0);
+        gb.placeShip(5, 0);
+        expect(gb.isBoardSet()).toBe(true);
+    })
+
+    test("Board is not set when only some ships are placed", () => { 
+        gb.placeShip(1, 0);
+        gb.placeShip(2, 0);
+        gb.placeShip(3, 0);
+        gb.placeShip(4, 0);
+        expect(gb.isBoardSet()).toBe(false);
+
+    })
+
+
 })

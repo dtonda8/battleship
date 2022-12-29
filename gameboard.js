@@ -52,7 +52,10 @@ function Gameboard() {
         },
         isShipsSunk: function(){
             return this.hitsRemaining <= 0;
-        }   
+        },
+        isBoardSet: function() {
+            return this.shipLengthsToAdd.length === 0;
+        } 
     }
 }
 
