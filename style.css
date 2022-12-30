@@ -12,6 +12,10 @@ body {
     transition: 0.1s;
 }
 
+.box:hover {
+    background-color: rgb(193, 193, 193);
+}
+
 .grid-container {
     display: flex;
     justify-content: center;
@@ -29,6 +33,15 @@ body {
     width: 100px
 }
 
-.potential {
+.box.potential {
     background-color: rgba(0, 109, 255, 0.8);
+}
+
+.ship {
+    background-color: rgb(101, 101, 101);
+}
+
+#message-div {
+    display: flex;
+    flex-direction: column;
 }
