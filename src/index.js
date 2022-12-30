@@ -99,7 +99,10 @@ function setGameMsg(winner=null) {
         messageDiv.textContent = `${winner} Wins!`;
         messageDiv.appendChild(playAgainBtn)
 
-    } else messageDiv.textContent = "Play!";
+    } else {
+        messageDiv.textContent = "Play!";
+        messageDiv.style.color = 'rgb(19, 173, 34)';
+    }
 
 }
 
@@ -125,10 +128,6 @@ changeAxisBtn.id = 'change-axis-btn';
 changeAxisBtn.addEventListener('click', () => {
     P1.playerGB.placeDirectionY = !P1.playerGB.placeDirectionY;
 })
-
-function buildLayout() {
-
-}
 
 gridsContainerDiv.classList.add('grid-container')
 gridsContainerDiv.appendChild(P1Grid);
