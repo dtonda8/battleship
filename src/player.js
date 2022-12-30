@@ -5,20 +5,24 @@ function getRandomInt(max) {
 };
 
 
-function isContainedIn2DArray(array, container) {
-    for (let i = 0; i < container.length; i++) {
-      if (container[i].join('') === array.join('')) {
-        return true;
-      }
+function possibleOptions() {
+    let options = [];
+    for (let i = 0; i < 10; i ++) {
+        for (let j = 0; j < 10; j++) {
+            options.push([i, j]);
+        }
     }
-    return false;
-};
+    return options;
+}
+
+let attackOptions = possibleOptions();
   
   
 function Player(name){
     return {
         name,
         playerGB: Gameboard(),
+        options: attackOptions,
         randomiseTanks: function() {
             while (!this.playerGB.isBoardSet()) {
                 this.playerGB.placeDirectionY = Boolean(getRandomInt(2));
@@ -29,12 +33,8 @@ function Player(name){
         // For AI
         attemptedAttacks: [],
         randomisedMove: function() {
-            let isMoveValid = false;
-            while (!isMoveValid) {
-                let move = [getRandomInt(10), getRandomInt(10)];
-                if (isContainedIn2DArray(move, this.attemptedAttacks)) continue;
-                return move;
-            }
+            let moveArr = this.options.splice(getRandomInt(this.options.length), 1);
+            return moveArr[0];
         }
     };
 };

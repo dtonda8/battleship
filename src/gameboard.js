@@ -12,7 +12,7 @@ function Gameboard() {
         hitsRemaining: 0,
         board: prepareBoard(),
         isShotReceived: prepareBoard(),
-        shipLengthsToAdd: [5, 4, 3, 2, 2, 1],
+        shipLengthsToAdd: [5, 4, 3, 3, 2],
         placeDirectionY: true,
         isShipPlaceValid: function(x, y) {
             let ship = [];
@@ -36,26 +36,6 @@ function Gameboard() {
             return ship;
         },
         placeShip: function(x, y) {
-            // let ship = [];
-            // let shipLength = this.shipLengthsToAdd[0];
-
-            // if(this.placeDirectionY){
-            //     for (let i = 0; i < shipLength; i++){
-            //         if (y + i <= 9 && !this.board[x][y + i]){
-            //             ship.push([x, y + i]);
-            //             this.board[x][y + i] = true;
-            //         } else return false;
-            //     }
-
-            // } else {
-            //     for (let i = 0; i < shipLength; i++){
-            //         if (x + i <= 9 && !this.board[x + i][y]){
-            //             ship.push([x + i, y]);
-            //             this.board[x + i][y] = true;
-            //         } else return false;
-            //     }
-            // }
-
             let ship = this.isShipPlaceValid(x, y);
             if(ship) {
                 for (let arr of ship) {
@@ -88,8 +68,5 @@ function Gameboard() {
         } 
     }
 }
-// let gb = Gameboard();
-// console.log(gb.placeShip(0, 0));
-// console.log(gb.isShipPlaceValid(0, 6));
 
 export {Gameboard}
