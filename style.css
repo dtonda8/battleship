@@ -1,3 +1,17 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#heading {
+    font-size: 2rem;
+}
+
+button {
+    background-color: transparent;
+    border-radius: 6px;
+    font-size: 1.5em;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -29,8 +43,7 @@ body {
 }
 
 #change-axis-btn {
-    margin: 10px;
-    width: 100px
+    margin: 3px;
 }
 
 .box.potential {
@@ -44,4 +57,24 @@ body {
 #message-div {
     display: flex;
     flex-direction: column;
+    font-size: 1.5em;
+}
+
+#footer img {
+    width: 20px;
+    height: auto;
+    display: flex;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #555555;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
