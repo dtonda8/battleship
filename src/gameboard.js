@@ -14,7 +14,7 @@ function Gameboard() {
         isShotReceived: prepareBoard(),
         shipLengthsToAdd: [5, 4, 3, 2, 2, 1],
         placeDirectionY: true,
-        placeShip: function(x, y) {
+        isShipPlaceValid: function(x, y) {
             let ship = [];
             let shipLength = this.shipLengthsToAdd[0];
 
@@ -22,7 +22,6 @@ function Gameboard() {
                 for (let i = 0; i < shipLength; i++){
                     if (y + i <= 9 && !this.board[x][y + i]){
                         ship.push([x, y + i]);
-                        this.board[x][y + i] = true;
                     } else return false;
                 }
 
@@ -30,13 +29,44 @@ function Gameboard() {
                 for (let i = 0; i < shipLength; i++){
                     if (x + i <= 9 && !this.board[x + i][y]){
                         ship.push([x + i, y]);
-                        this.board[x + i][y] = true;
                     } else return false;
                 }
             }
 
-            this.hitsRemaining += this.shipLengthsToAdd.shift();
             return ship;
+        },
+        placeShip: function(x, y) {
+            // let ship = [];
+            // let shipLength = this.shipLengthsToAdd[0];
+
+            // if(this.placeDirectionY){
+            //     for (let i = 0; i < shipLength; i++){
+            //         if (y + i <= 9 && !this.board[x][y + i]){
+            //             ship.push([x, y + i]);
+            //             this.board[x][y + i] = true;
+            //         } else return false;
+            //     }
+
+            // } else {
+            //     for (let i = 0; i < shipLength; i++){
+            //         if (x + i <= 9 && !this.board[x + i][y]){
+            //             ship.push([x + i, y]);
+            //             this.board[x + i][y] = true;
+            //         } else return false;
+            //     }
+            // }
+
+            let ship = this.isShipPlaceValid(x, y);
+            if(ship) {
+                for (let arr of ship) {
+                    let x = arr[0];
+                    let y = arr[1];
+                    this.board[x][y] = true;
+                }
+                this.hitsRemaining += this.shipLengthsToAdd.shift();
+                return ship;            
+            } else return false;
+
         },
         receiveAttack: function(x, y){  
             if (!this.isShotReceived[x][y]){
@@ -58,5 +88,8 @@ function Gameboard() {
         } 
     }
 }
+// let gb = Gameboard();
+// console.log(gb.placeShip(0, 0));
+// console.log(gb.isShipPlaceValid(0, 6));
 
 export {Gameboard}

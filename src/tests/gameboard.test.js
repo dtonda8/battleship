@@ -10,6 +10,10 @@ describe('Gameboard', () => {
         gb.placeShip(0, 0);
     })
 
+    test('isShipPlaceValid returns array when on valid square', () => {
+        expect(gb.isShipPlaceValid(0, 6)).toStrictEqual([[0, 6], [0, 7], [0, 8], [0, 9]])
+    })
+
     test('Place ship at coordinate return array of coordinates of ship (vertical)', () => {
         expect(gb.placeShip(0, 6)).toStrictEqual([[0, 6], [0, 7], [0, 8], [0, 9]])
     })

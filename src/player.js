@@ -15,8 +15,9 @@ function isContainedIn2DArray(array, container) {
 };
   
   
-function Player(){
+function Player(name){
     return {
+        name,
         playerGB: Gameboard(),
         randomiseTanks: function() {
             while (!this.playerGB.isBoardSet()) {

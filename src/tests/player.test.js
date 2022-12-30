@@ -5,11 +5,10 @@ describe("Player", () => {
 
     let p;
     beforeEach(() => {
-        p = Player;
+        p = Player();
     });
 
-    test("Check", () => {
-        p.placeShip()
-        expect(p.isBoardSet()).toBe(true);
+    test("Player object returns a value", () => {
+        expect(p.playerGB).toBeTruthy();
     });
 });
