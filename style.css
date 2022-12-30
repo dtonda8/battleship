@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    display: inline;
+    width: 40px;
+    height: 40px;
+    border: 1px solid grey;
+    transition: 0.1s;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.grid {
+    display: inline-grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    border: 2px solid black;
+}
+
+#change-axis-btn {
+    margin: 10px;
+    width: 100px
+}
+
+.potential {
+    background-color: rgba(0, 109, 255, 0.8);
+}
